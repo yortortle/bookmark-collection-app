@@ -1,0 +1,61 @@
+<html ng-app="BookApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/app.css">
+    <title></title>
+  </head>
+  <body ng-controller="MainController as ctrl">
+    <div class="">
+      <h1>Simple Bookmark Tracker</h1>
+      <p class = "instructions">Please use this simple logger to keep track of important web resources!</p>
+    </div>
+    <div class="container">
+      <div class="tester">
+        <ol>
+          <li class="flexbox" ng-repeat="bookmark in ctrl.bookmark">
+            <div class="flextest1">
+              <div class="link">
+                <a href="{{bookmark.url}}">{{bookmark.title}}</a>
+              </div>
+              <div class="flextest2">
+                <form id = "editform" ng-submit="ctrl.editBookmark(bookmark)">
+                  <input ng-model="ctrl.updatedBookmarkUrl[bookmark.url]" type="text" placeholder = "new url">
+                  <input class = "button" type="submit" name="" value="update url">
+                  <button class = "button" ng-click="ctrl.deleteBookmark(bookmark)" type="button" name="button">Delete Url</button>
+                </form>
+              </div>
+            </div>
+          </li>
+        </ol>
+
+      </div>
+
+      <div class="holder">
+        <div class="createform">
+          &nbsp<h3>Submit New Link:</h3>
+          <form id="createForm" ng-submit="ctrl.createBookmark()">
+            Title: <input class="title" ng-model = "ctrl.title" type="text" name="" value=""><br/><br/>
+            Url: &nbsp   <input class = "title" ng-model = "ctrl.url" type="text" name="" value=""> <br/><br/>
+            <input class="button" type="submit" name="" value="Submit New Bookmark">
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div>
+        <div class="icons">
+          <a class = "hover" href="#"><img class = "logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/600px-LinkedIn_logo_initials.png" alt="test"></a>
+
+          <a class = "hover" href="https://github.com/yortortle"> <img class = "logo" src="https://image.flaticon.com/icons/svg/25/25231.svg" alt="test"></a>
+        </div>
+      </div>
+      <div class="">
+        <h3>Troy Hancock</h3>
+
+        <p class="copyright">copyright @1995-2019 <br/> All rights reserved. Powered by General Assembly</p>
+      </div>
+    </footer>
+  </body>
+</html>
